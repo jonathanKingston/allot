@@ -1,0 +1,17 @@
+{
+  "author": "Jonathan Kingston",
+  "name": "classHelpers",
+  "description": "Helper utils for classes",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "main": "./lib/main",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
