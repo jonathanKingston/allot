@@ -1,9 +1,9 @@
 (function () {
 
-  var classHelpers = require('../');
+  var allot = require('../');
   var assert = require('chai').assert;
 
-  describe('classHelpers.factory', function(){
+  describe('allot.factory', function(){
     function Thing() {
     };
 
@@ -20,7 +20,7 @@
 
     it('should be able to build new objects mapping to the super prototypes', function() {
 
-      var Thingerston = classHelpers.factory(Thing, function Thinger() {}, {
+      var Thingerston = allot.factory(Thing, function Thinger() {}, {
         buildFromSuper: true,
         staticProxyPrototypes: ['doSomething'],
       });
@@ -34,7 +34,7 @@
 
     it('should be able to build new objects mapping to the super methods', function() {
 
-      var Thingerston = classHelpers.factory(Thing, function Thinger() {}, {
+      var Thingerston = allot.factory(Thing, function Thinger() {}, {
         buildFromSuper: true,
         staticProxyMethods: ['doMethod'],
       });

@@ -1,10 +1,10 @@
 {
   "author": "Jonathan Kingston",
-  "name": "classhelpers",
-  "description": "Helper utils for classes",
+  "name": "allot",
+  "description": "Allot - utils for classes",
   "version": "0.0.2",
   "repository": {
-    "url": "https://github.com/jonathanKingston/classHelpers.git"
+    "url": "https://github.com/jonathanKingston/allot.git"
   },
   "main": "./lib/main",
   "dependencies": {
