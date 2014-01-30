@@ -46,6 +46,36 @@
     });
 
 
+    it('should be able to build new objects mapping prototypes to the super methods', function() {
+
+      var Thingerston = allot.factory(Thing, function Thinger() {}, {
+        buildFromSuper: true,
+        instanceProxyMethods: ['doMethod'],
+      });
+      assert.typeOf(Thingerston, 'function', 'Check constructor exists');
+      assert.typeOf(Thingerston.prototype.doMethod, 'function', 'Check prototype exists');
+
+      var ThingerstonInstance = new Thingerston();
+      assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
+      ThingerstonInstance.doMethod('thiss');
+      assert.typeOf(ThingerstonInstance.doMethod, 'function', 'Check function exists');
+
+    });
+
+    it('should be able to build new objects mapping prototypes to the super prototypes', function() {
+
+      var Thingerston = allot.factory(Thing, function Thinger() {}, {
+        buildFromSuper: true,
+        instanceProxyPrototypes: ['doSomething'],
+      });
+      assert.typeOf(Thingerston, 'function', 'Check constructor exists');
+
+      var ThingerstonInstance = new Thingerston();
+      assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
+      ThingerstonInstance.doSomething('thiss');
+      assert.typeOf(ThingerstonInstance.doSomething, 'function', 'Check function exists');
+    });
+
 
   });
 
