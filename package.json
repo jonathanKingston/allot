@@ -2,14 +2,17 @@
   "author": "Jonathan Kingston",
   "name": "classhelpers",
   "description": "Helper utils for classes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "url": "https://github.com/jonathanKingston/classHelpers.git"
   },
   "main": "./lib/main",
   "dependencies": {
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "1.17.1",
+    "chai": "1.9.0"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
