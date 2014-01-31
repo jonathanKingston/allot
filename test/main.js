@@ -5,7 +5,7 @@
 
   describe('allot.factory', function(){
     function Thing() {
-    };
+    }
 
     Thing.prototype.doSomething = function (name) {
       this[name] = 'randomPropertyValue';

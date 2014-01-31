@@ -46,7 +46,7 @@
   },
   "config": {
     "blanket": {
-      "pattern": "lib"
+      "pattern": "allot/lib/"
     }
   }
 }
