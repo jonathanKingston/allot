@@ -17,7 +17,7 @@
     "browserify": "3.24.8",
     "coveralls": "git+https://github.com/jonathanKingston/node-coveralls.git",
     "mocha-lcov-reporter": "0.0.1",
-    "blanket": "git+https://github.com/jonathanKingston/blanket.git",
+    "blanket": "1.1.5",
     "mocha-jshint": "0.0.7"
   },
   "optionalDependencies": {},
