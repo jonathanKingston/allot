@@ -7,11 +7,14 @@
     "url": "https://github.com/jonathanKingston/allot.git"
   },
   "main": "./lib/main",
+  "browserify": "lib/browser",
   "dependencies": {
+    "es5-shim": "2.3.0"
   },
   "devDependencies": {
     "mocha": "1.17.1",
-    "chai": "1.9.0"
+    "chai": "1.9.0",
+    "browserify": "3.24.8"
   },
   "optionalDependencies": {},
   "engines": {
