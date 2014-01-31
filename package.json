@@ -24,7 +24,7 @@
     "files": "test/*.js",
     "harness" : "mocha",
     "browsers": [
-      "ie/9",
+      "ie/6..latest",
       "firefox/3.5","firefox/latest",
       "chrome/5","chrome/latest",
       "opera/12..latest", "opera/next",
