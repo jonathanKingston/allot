@@ -17,18 +17,23 @@
       return 'prop return -' + name;
     };
 
+    var name = 'testVar';
+
 
     it('should be able to build new objects mapping to the super prototypes', function() {
-
       var Thingerston = allot.factory(Thing, function Thinger() {}, {
         buildFromSuper: true,
         staticProxyPrototypes: ['doSomething'],
       });
-      Thingerston.doSomething('thiss');
+      Thingerston.doSomething(name);
       assert.typeOf(Thingerston, 'function', 'Check constructor exists');
 
       var ThingerstonInstance = new Thingerston();
+
       assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
+      assert.isUndefined(Thing[name], 'Check for variable leekage into parent class');
+      assert.isDefined(Thingerston[name], 'Check for variable is set');
+      assert.isUndefined(ThingerstonInstance[name], 'Check for variable leekage into instance');
     });
 
 
@@ -38,11 +43,15 @@
         buildFromSuper: true,
         staticProxyMethods: ['doMethod'],
       });
-      Thingerston.doMethod('thiss');
+      Thingerston.doMethod(name);
+
       assert.typeOf(Thingerston, 'function', 'Check constructor exists');
 
       var ThingerstonInstance = new Thingerston();
       assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
+      assert.isUndefined(Thing[name], 'Check for variable leekage into parent class');
+      assert.isDefined(Thingerston[name], 'Check for variable is set');
+      assert.isUndefined(ThingerstonInstance[name], 'Check for variable leekage into instance');
     });
 
 
@@ -57,9 +66,11 @@
 
       var ThingerstonInstance = new Thingerston();
       assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
-      ThingerstonInstance.doMethod('thiss');
+      ThingerstonInstance.doMethod(name);
       assert.typeOf(ThingerstonInstance.doMethod, 'function', 'Check function exists');
-
+      assert.isUndefined(Thing[name], 'Check for variable leekage into parent class');
+      assert.isUndefined(Thingerston[name], 'Check for leakage to class');
+      assert.isDefined(ThingerstonInstance[name], 'Check for variable is set on instance');
     });
 
     it('should be able to build new objects mapping prototypes to the super prototypes', function() {
@@ -72,8 +83,11 @@
 
       var ThingerstonInstance = new Thingerston();
       assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
-      ThingerstonInstance.doSomething('thiss');
+      ThingerstonInstance.doSomething(name);
       assert.typeOf(ThingerstonInstance.doSomething, 'function', 'Check function exists');
+      assert.isUndefined(Thing[name], 'Check for variable leekage into parent class');
+      assert.isUndefined(Thingerston[name], 'Check for leakage to class');
+      assert.isDefined(ThingerstonInstance[name], 'Check for variable is set on instance');
     });
 
 
