@@ -46,7 +46,8 @@
   },
   "config": {
     "blanket": {
-      "pattern": "allot/lib/"
+      "pattern": "allot/lib/",
+      "data-cover-never": "node_modules"
     }
   }
 }
