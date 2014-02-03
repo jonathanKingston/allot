@@ -101,28 +101,6 @@
 
   });
 
-  describe('allot.typeOf', function(){
-
-    it('should return type null if a null is provided', function() {
-      assert.strictEqual(allot.typeOf(null), 'null');
-      assert.notStrictEqual(allot.typeOf(true), 'null');
-    });
-
-    it('should return type array if an array is provided', function() {
-      assert.strictEqual(allot.typeOf([]), 'array');
-      assert.strictEqual(allot.typeOf(['test']), 'array');
-      assert.notStrictEqual(allot.typeOf({}), 'array');
-      assert.notStrictEqual(allot.typeOf(null), 'array');
-    });
-
-    it('should return type boolean if true or false is provided', function() {
-      assert.strictEqual(allot.typeOf(false), 'boolean');
-      assert.strictEqual(allot.typeOf(true), 'boolean');
-      assert.notStrictEqual(allot.typeOf(null), 'boolean');
-    });
-
-  });
-
   describe('allot.proxyMethods', function(){
 
     it('should return false if methodNames is not an array', function () {
