@@ -2,7 +2,7 @@
   "author": "Jonathan Kingston",
   "name": "allot",
   "description": "Allot - utils for classes",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "url": "https://github.com/jonathanKingston/allot.git"
   },
@@ -16,7 +16,7 @@
     "mocha": "1.17.1",
     "chai": "1.9.0",
     "browserify": "3.24.8",
-    "coveralls": "git+https://github.com/jonathanKingston/node-coveralls.git",
+    "coveralls": "2.7.1",
     "mocha-lcov-reporter": "0.0.1",
     "blanket": "git+https://github.com/alex-seville/blanket.git",
     "mocha-jshint": "0.0.7"
