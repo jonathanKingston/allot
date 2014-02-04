@@ -136,5 +136,45 @@
 
   });
 
+  describe('allot.getAllMethodNames', function () {
+
+    it('should return blank array if no matching arrays are found', function () {
+      var object = {};
+
+      var methodNames = allot.getAllMethodNames(object);
+      assert.isArray(methodNames, 'return is of array type');
+      assert.lengthOf(methodNames, 0, 'return has a length of 0');
+    });
+
+    it('should return an array of strings when a valid object is supplied', function () {
+      var object = {
+        thing: 12,
+        otherThing: function () {}
+      };
+      var methodNames = allot.getAllMethodNames(object);
+      var object2 = {
+        thing: 12,
+        otherThing: function () {},
+        otherThing2: function () {}
+      };
+      var methodNames2 = allot.getAllMethodNames(object2);
+
+      assert.isArray(methodNames, 'return is of array type');
+      assert.lengthOf(methodNames, 1, 'return has a length of 1');
+
+      assert.isArray(methodNames2, 'return is of array type');
+      assert.lengthOf(methodNames2, 2, 'return has a length of 2');
+    });
+
+    it('should return null when an invalid object is supplied', function () {
+
+      assert.isNull(allot.getAllMethodNames([]), 'array passed in returns null');
+      assert.isNull(allot.getAllMethodNames('thing'), 'string passed in returns null');
+      assert.isNull(allot.getAllMethodNames(12), 'number passed in returns null');
+      assert.isNull(allot.getAllMethodNames(function thing() {}), 'function passed in returns null');
+
+    });
+
+  });
 
 }());
