@@ -12,6 +12,9 @@ test-w:
 
 test-cov: coverage
 
+doc:
+	jsdoc -d doc lib/ README.md
+
 coverage:
 	NODE_ENV=test YOURPACKAGE_COVERAGE=1 ./node_modules/.bin/mocha \
 		--require blanket \
