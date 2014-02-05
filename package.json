@@ -4,7 +4,7 @@
   "description": "Utils for classes",
   "license": "LGPL-3.0",
   "url": "http://jonathankingston.co.uk/",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "url": "https://github.com/jonathanKingston/allot.git"
   },
@@ -17,10 +17,10 @@
   "devDependencies": {
     "mocha": "1.17.1",
     "chai": "1.9.0",
-    "browserify": "3.24.8",
+    "browserify": "3.24.11",
     "coveralls": "2.7.1",
     "mocha-lcov-reporter": "0.0.1",
-    "blanket": "git+https://github.com/alex-seville/blanket.git",
+    "blanket": "1.1.6",
     "mocha-jshint": "0.0.7"
   },
   "optionalDependencies": {},
@@ -50,7 +50,10 @@
   "config": {
     "blanket": {
       "pattern": "allot/lib/",
-      "data-cover-never": "node_modules"
+      "data-cover-never": [
+        "node_modules",
+        "doc"
+      ]
     }
   }
 }
