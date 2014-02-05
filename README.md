@@ -21,7 +21,7 @@ SuperClass.prototype.doSomething = function () {
   return 'Hello there';
 };
 
-var ChildClass = allot.factory(SuperClass, Constructor, {
+var ChildClass = allot.factory(SuperClass, {
   staticProxyPrototypes: ['doSomething']
 });
 

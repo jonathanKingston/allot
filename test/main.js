@@ -20,8 +20,26 @@
     var name = 'testVar';
 
 
+    it('should be able to build new objects mapping to all supertypes', function() {
+      var Thingerston = allot.factory(Thing, {
+        constructor: function Thinger() {},
+        staticProxyPrototypes: true,
+      });
+      Thingerston.doSomething(name);
+      assert.typeOf(Thingerston, 'function', 'Check constructor exists');
+
+      var ThingerstonInstance = new Thingerston();
+
+      assert.typeOf(ThingerstonInstance, 'object', 'Check build object has classes');
+      assert.isUndefined(Thing[name], 'Check for variable leekage into parent class');
+      assert.isDefined(Thingerston[name], 'Check for variable is set');
+      assert.isUndefined(ThingerstonInstance[name], 'Check for variable leekage into instance');
+    });
+
+
     it('should be able to build new objects mapping to the super prototypes', function() {
-      var Thingerston = allot.factory(Thing, function Thinger() {}, {
+      var Thingerston = allot.factory(Thing, {
+        constructor: function Thinger() {},
         buildFromSuper: true,
         staticProxyPrototypes: ['doSomething'],
       });
@@ -39,7 +57,8 @@
 
     it('should be able to build new objects mapping to the super methods', function() {
 
-      var Thingerston = allot.factory(Thing, function Thinger() {}, {
+      var Thingerston = allot.factory(Thing, {
+        constructor: function Thinger() {},
         buildFromSuper: true,
         staticProxyMethods: ['doMethod'],
       });
@@ -57,7 +76,8 @@
 
     it('should be able to build new objects mapping prototypes to the super methods', function() {
 
-      var Thingerston = allot.factory(Thing, function Thinger() {}, {
+      var Thingerston = allot.factory(Thing, {
+        constructor: function Thinger() {},
         buildFromSuper: true,
         instanceProxyMethods: ['doMethod'],
       });
@@ -75,7 +95,8 @@
 
     it('should be able to build new objects mapping prototypes to the super prototypes', function() {
 
-      var Thingerston = allot.factory(Thing, function Thinger() {}, {
+      var Thingerston = allot.factory(Thing, {
+        constructor: function Thinger() {},
         buildFromSuper: true,
         instanceProxyPrototypes: ['doSomething'],
       });
@@ -91,7 +112,8 @@
     });
 
     it('should be building an abstract constructor if none are provided', function() {
-      var Thingerston = allot.factory(Thing, undefined, {
+      var Thingerston = allot.factory(Thing, {
+        constructor: undefined,
         buildFromSuper: true,
         staticProxyPrototypes: ['doSomething'],
       });
