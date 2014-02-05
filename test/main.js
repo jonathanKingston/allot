@@ -171,7 +171,25 @@
       assert.isNull(allot.getAllMethodNames([]), 'array passed in returns null');
       assert.isNull(allot.getAllMethodNames('thing'), 'string passed in returns null');
       assert.isNull(allot.getAllMethodNames(12), 'number passed in returns null');
-      assert.isNull(allot.getAllMethodNames(function thing() {}), 'function passed in returns null');
+
+    });
+
+    it('should return the methods of a prototype', function () {
+       function MyCheckClass() {
+       }
+       MyCheckClass.testing = function () {
+       };
+       MyCheckClass.prototype.thing = function () {
+       };
+       MyCheckClass.prototype.fun = function () {
+       };
+       MyCheckClass.prototype.funny = 12;
+
+       var MyCheckInstance = new MyCheckClass();
+
+       assert.sameMembers(allot.getAllMethodNames(MyCheckClass.prototype), ['thing', 'fun'], 'Has the same define named members as expected');
+       assert.sameMembers(allot.getAllMethodNames(MyCheckClass), ['testing'], 'Has the same define named members as expected');
+       assert.sameMembers(allot.getAllMethodNames(MyCheckInstance), ['thing', 'fun'], 'Has the same define named members as expected');
 
     });
 
