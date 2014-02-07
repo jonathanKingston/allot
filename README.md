@@ -1,10 +1,17 @@
 # Allot
 
-A collection of utils for JavaScript classes but could also be used with browserify for in browser classes.
+A way of defining interfaces from one JavaScript class to a new class.
+
+The idea is still a little abstract at the moment however its useful for building quick interfaces from one class to another.
 
 ## Usage
 
-`allot.factory` builds a new class based upon SuperClass.
+
+### `allot.factory`
+  Builds a new class based upon SuperClass.
+
+
+#### Static methods from instance methods
 
 ```js
 
@@ -24,6 +31,30 @@ ChildClass.doSomething();
 var instance = new ChildClass();
 
 ```
+
+#### Static methods from static methods
+
+```js
+
+function SuperClass() {
+};
+
+SuperClass.doSomething = function () {
+  return 'Hello there';
+};
+
+var ChildClass = allot.factory(SuperClass, {
+  staticProxyMethods: ['doSomething']
+});
+
+ChildClass.doSomething();
+
+var instance = new ChildClass();
+
+```
+
+
+
 
 ## Status
 
