@@ -13,7 +13,7 @@ test-w:
 test-cov: coverage
 
 doc:
-	jsdoc lib/ README.md -d pages/doc
+	jsdoc lib/ README.md -d pages/
 	@echo "  Don't forget to commit the changes in the pages sub module"
 
 coverage:
