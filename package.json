@@ -12,7 +12,7 @@
   "browserify": "lib/browser",
   "dependencies": {
     "es5-shim": "2.3.0",
-    "crock": "0.0.2"
+    "component-type": "1.0.0"
   },
   "devDependencies": {
     "mocha": "1.17.1",
