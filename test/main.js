@@ -3,22 +3,64 @@
   var allot = require('../');
   var assert = require('chai').assert;
 
-  describe('allot.factory', function(){
-    function Thing() {
-    }
+  function Thing() {
+  }
 
-    Thing.prototype.doSomething = function (name) {
-      this[name] = 'randomPropertyValue';
-      return 'prop return -' + name;
-    };
+  Thing.prototype.doSomething = function (name) {
+    this[name] = 'randomPropertyValue';
+    return 'prop return -' + name;
+  };
 
-    Thing.doMethod = function (name) {
-      this[name] = 'randomPropertyValue';
-      return 'prop return -' + name;
-    };
+  Thing.doMethod = function (name) {
+    this[name] = 'randomPropertyValue';
+    return 'prop return -' + name;
+  };
 
-    var name = 'testVar';
+  var name = 'testVar';
 
+
+  describe('allot.inherits', function () {
+
+    it('should be able to extend a class and return a result', function () {
+      var MyThing = function () {
+      };
+
+      allot.inherits(MyThing, Thing);
+
+      assert.isFunction(MyThing);
+
+      var myInstance = new MyThing();
+      assert.isObject(myInstance);
+    });
+
+    it('should retain the origional methods defined in the child constructor', function () {
+      var MyThing = function () {
+      };
+
+      MyThing.doMethod = function () {
+        return 'ChildTest';
+      };
+
+      allot.inherits(MyThing, Thing);
+
+      assert.isFunction(MyThing);
+      assert.isFunction(MyThing.doMethod);
+      assert.strictEqual(MyThing.doMethod(), 'ChildTest', 'Check we are using the child method');
+    });
+
+    it('should run the methods defined in the super constructor', function () {
+      var MyThing = function () {
+      };
+
+      allot.inherits(MyThing, Thing);
+      assert.isFunction(MyThing);
+      assert.isFunction(MyThing.doMethod, 'Check we have a function');
+      assert.strictEqual(MyThing.doMethod('test'), 'prop return -test', 'Check we are using the child method');
+    });
+
+  });
+
+  describe('allot.factory', function (){
 
     it('should be able to build new objects mapping to all supertypes', function() {
       var Thingerston = allot.factory(Thing, {
