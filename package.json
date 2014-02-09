@@ -12,7 +12,8 @@
   "browserify": "lib/browser",
   "dependencies": {
     "es5-shim": "2.3.0",
-    "component-type": "1.0.0"
+    "component-type": "1.0.0",
+    "inherits": "2.0.1"
   },
   "devDependencies": {
     "mocha": "1.17.1",
