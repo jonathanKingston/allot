@@ -4,7 +4,35 @@ A way of defining interfaces from one JavaScript class to a new class.
 
 The idea is still a little abstract at the moment however its useful for building quick interfaces from one class to another.
 
+[Full documentation](http://jonathankingston.github.io/allot/)
+
 ## Usage
+
+### `allot.inherits`
+  Classical inheritance to JavaScript, however methods are not copied or referenced they use the proxy methods defined in this module.
+
+
+```js
+
+function SuperClass() {
+};
+
+SuperClass.thing = function () {
+  return 'thing';
+};
+
+SuperClass.prototype.doSomething = function () {
+  return 'Hello there';
+};
+
+var ChildClass = allot.inherits(function () {}, SuperClass);
+
+ChildClass.thing();
+
+var instance = new ChildClass();
+instance.doSomething();
+
+```
 
 
 ### `allot.factory`
